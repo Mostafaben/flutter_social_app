@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Avatar.dart';
+import 'PostViews.dart';
 
 class Post extends StatefulWidget {
   @override
@@ -36,6 +37,22 @@ class _PostState extends State<Post> {
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                       "https://picsum.photos/400/400",
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Container(
+                          height: 200,
+                          width: double.infinity,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              value: loadingProgress.expectedTotalBytes != null
+                                  ? loadingProgress.cumulativeBytesLoaded /
+                                      loadingProgress.expectedTotalBytes
+                                  : null,
+                            ),
+                          ),
+                        );
+                      },
                       width: double.infinity,
                       fit: BoxFit.cover,
                     ),
@@ -52,27 +69,4 @@ class _PostState extends State<Post> {
       ),
     );
   }
-}
-
-Widget PostViews() {
-  return Container(
-    width: 60,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.black.withOpacity(0.3)),
-    padding: EdgeInsets.all(8),
-    margin: EdgeInsets.all(10),
-    child: Column(
-      children: [
-        Icon(
-          Icons.remove_red_eye_outlined,
-          color: Colors.white,
-        ),
-        Text(
-          "125",
-          style: TextStyle(color: Colors.white),
-        )
-      ],
-    ),
-  );
 }

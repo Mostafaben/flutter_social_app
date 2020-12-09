@@ -9,18 +9,19 @@ class ActiveUser extends StatelessWidget {
         children: [
           Stack(alignment: Alignment.center, children: [
             AnimatedContainer(
-                duration: Duration(milliseconds: 200),
-                curve: Curves.bounceInOut,
-                height: 66,
-                width: 66,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(35),
-                  gradient: LinearGradient(
-                      colors: [Colors.blue, Colors.red],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight),
-                ),
-                child: SizedBox()),
+              duration: Duration(milliseconds: 200),
+              curve: Curves.bounceInOut,
+              height: 66,
+              width: 66,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(35),
+                gradient: LinearGradient(
+                    colors: [Colors.blue, Colors.red],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight),
+              ),
+              child: SizedBox(),
+            ),
             ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Image.network(
