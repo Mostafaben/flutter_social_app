@@ -8,6 +8,9 @@ class CustomAppBar extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Container(
           child: TextField(
+            onChanged: (value) {
+              print(value);
+            },
             decoration: InputDecoration(
                 hintText: "search",
                 suffixIcon: Icon(
@@ -15,6 +18,8 @@ class CustomAppBar extends StatelessWidget {
                   color: const Color(0xFF888888),
                   size: 28,
                 ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueAccent[700])),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
