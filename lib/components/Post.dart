@@ -7,9 +7,16 @@ class Post extends StatelessWidget {
     return SizedBox(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 4,
+                color: Colors.grey[300],
+                spreadRadius: 2,
+                offset: Offset(0, 3))
+          ],
           color: Colors.white,
         ),
         child: Column(
